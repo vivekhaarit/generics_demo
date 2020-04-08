@@ -2,10 +2,14 @@ package com.mytestlab;
 
 import java.io.Serializable;
 
-class Demo <T> {
-    T[] myArray;
-    public Demo(T[] myArray){
-        this.myArray=myArray;
+class Demo <X,Y,Z> {
+    X[] myXArray;
+    Y[] myYArray;
+    Z[] myZArray;
+    public Demo(X[] myXArray,Y[] myYArray,Z[] myZArray){
+        this.myXArray=myXArray;
+        this.myYArray=myYArray;
+        this.myZArray=myZArray;
     }
 
     public static void main(String[] args) {
@@ -17,13 +21,13 @@ class Demo <T> {
         printIntegerArray(charArray);
         printIntegerArray(doubleArray);
 
-        new Demo<Integer>(integerArray).toPrint();
-        new Demo<Double>(doubleArray).toPrint();
-        new Demo<Character>(charArray).toPrint();
+        new Demo <Integer,Double,Character> (integerArray,doubleArray,charArray).toPrint();
 
     }
     private void toPrint(){
-        printIntegerArray(myArray);
+        printIntegerArray(myXArray);
+        printIntegerArray(myYArray);
+        printIntegerArray(myZArray);
     }
     private static <T> void printIntegerArray(T[] integerArray){
         for (T num:integerArray) {
